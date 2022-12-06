@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +8,38 @@
   <title>Todo App</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <main>
     <section class="todo-list-wrapper">
       <div class="todo-list--header">
-        <h4>Today's To Do</h4>
-        <input type="text" placeholder="Add to your list...">
+        <div>
+          <div class="todo-list--title-wrapper padding">
+            <h4>Today's To Do</h4>
+            <i class="fa-solid fa-arrows-rotate"></i>
+          </div>
+          <span class="divider"></span>
+        </div>
+        <div class="header--input-wrapper">
+          <input type="text" placeholder="Add to your list...">
+          <span class="divider"></span>
+        </div>
       </div>
-     <ul class="todo-list--body">
-      <li class="todo-list--item">
-        <input type="checkbox">
-        <span>Wash dishes</span>
-      </li>
-      <li class="todo-list--item">
-        <input type="checkbox">
-        <span>Complete to do list project</span>
-      </li>
-     </ul>
+      <ul class="todo-list--body">
+        <li class="todo-list--item">
+          <input type="checkbox">
+          <span>Wash dishes</span>
+          <span class="divider"></span>
+        </li>
+        <li class="todo-list--item">
+          <input type="checkbox">
+          <span>Complete to do list project</span>
+          <span class="divider"></span>
+        </li>
+      </ul>
     </section>
   </main>
+  <script src="https://kit.fontawesome.com/5877810b19.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
