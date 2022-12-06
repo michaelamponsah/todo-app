@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo App</title>
-  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <main>
+    <section class="todo-list-wrapper">
+      <div class="todo-list--header">
+        <div>
+          <div class="todo-list--title-wrapper padding">
+            <h4 class="title">Today's To Do</h4>
+            <i class="fa-solid fa-arrows-rotate icon"></i>
+          </div>
+          <span class="divider"></span>
+        </div>
+        <div class="header--input-wrapper">
+          <div  class="padding">
+            <input type="text" placeholder="Add to your list..." >
+          </div>
+          <span class="divider"></span>
+        </div>
+      </div>
+      <ul class="todo-list--body" data-list-wrapper>
+      </ul>
+      <button class="btn">Clear all completed</button>
+    </section>
+  </main>
+  <script src="https://kit.fontawesome.com/5877810b19.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
