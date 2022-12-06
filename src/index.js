@@ -1,5 +1,9 @@
-import _ from 'lodash';
+import 'lodash';
 import './style.css';
+
+import todoListBuilder from './modules/todoListBuilder.js';
+
+const todoListWrapper = document.querySelector('[data-list-wrapper]');
 
 const data = [
 
@@ -12,5 +16,13 @@ const data = [
     index: 2,
     description: 'build a new feature for fitness app',
     isCompleted: false,
-  }
-]
+  },
+];
+
+const renderData = () => {
+  data.forEach((listItem) => {
+    todoListWrapper.innerHTML += todoListBuilder(listItem);
+  });
+};
+
+window.onload = renderData;
