@@ -1,7 +1,7 @@
 const todoListBuilder = (data) => {
-  const { index, description } = data;
+  const { index, description, isCompleted } = data;
   const listItem = `
-    <li class="todo-list-item--wrapper" id=${index} data-completed=${completed}>
+    <li class="todo-list-item--wrapper" id=${index} data-completed=${isCompleted}>
       <div class="todo-list--item padding">
         <div>
           <input type="checkbox">
@@ -11,8 +11,8 @@ const todoListBuilder = (data) => {
       </div>
       <span class="divider"></span>
     </li>
-  `
+  `;
   return listItem;
-}
+};
 
 export default todoListBuilder;
