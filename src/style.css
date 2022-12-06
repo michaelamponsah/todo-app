@@ -43,8 +43,9 @@ main {
   background-color: #fff;
   padding: 0.8em;
   width: 35%;
-  min-height: 350px;
+  min-height: 200px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  position: relative;
 }
 
 .todo-list--title-wrapper {
@@ -76,4 +77,21 @@ input[type="text"] {
 
 .elipsis:hover  {
   cursor: move;
+}
+
+.btn {
+  width: 100%;
+  border: none;
+  height: 50px;
+  margin-top: -0.65em;
+  background-color: #f6f6f6;
+  color: #bdbdbd;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.btn:hover {
+  cursor: pointer;
 }
