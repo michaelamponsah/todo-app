@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-/* Reset Margins*/
 body,
 h1,
 h2,
@@ -18,7 +17,6 @@ figure {
   margin: 0;
 }
 
-/* Make form elements easier to work with*/
 button,
 input,
 select,
@@ -45,10 +43,9 @@ main {
 
 .todo-list-wrapper {
   background-color: #fff;
-  /* padding: 0.8em; */
   width: 35%;
   min-height: 200px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
   position: relative;
 }
 
@@ -79,10 +76,6 @@ input[type="text"]:focus {
   outline: none;
 }
 
-input[type="checkbox"]:checked {
-  accent-color: #fff;
-}
-
 i {
   color: #b3b3b3;
 }
@@ -92,7 +85,7 @@ i {
 }
 
 .todo-list--item {
-  display:  flex;
+  display: flex;
   justify-content: space-between;
 }
 
@@ -100,7 +93,7 @@ i {
   cursor: pointer;
 }
 
-.elipsis:hover  {
+.elipsis:hover {
   cursor: move;
 }
 
