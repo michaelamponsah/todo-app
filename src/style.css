@@ -39,13 +39,21 @@ main {
   min-height: 100vh;
 }
 
+.padding {
+  padding: 0 0.8em;
+}
+
 .todo-list-wrapper {
   background-color: #fff;
-  padding: 0.8em;
+  /* padding: 0.8em; */
   width: 35%;
   min-height: 200px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   position: relative;
+}
+
+.todo-list--header {
+  padding-top: 0.8em;
 }
 
 .todo-list--title-wrapper {
@@ -64,6 +72,23 @@ main {
 input[type="text"] {
   width: 100%;
   border: none;
+  font-style: italic;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+input[type="checkbox"]:checked {
+  accent-color: #fff;
+}
+
+i {
+  color: #b3b3b3;
+}
+
+.title {
+  color: #6b6969;
 }
 
 .todo-list--item {
