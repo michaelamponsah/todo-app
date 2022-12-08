@@ -3,9 +3,9 @@ const todoListBuilder = (data) => {
   const listItem = `
     <li class="todo-list-item--wrapper" id=${index} data-completed=${isCompleted}>
       <div class="todo-list--item padding">
-        <div>
+        <div class="input-desc-wrapper">
           <input type="checkbox">
-          <span>${description}</span>
+          <p class="description">${description}</p>
         </div>
         <i class="fa-solid fa-ellipsis-vertical elipsis"></i>
       </div>
