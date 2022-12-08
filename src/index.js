@@ -27,7 +27,7 @@ todoInputField.addEventListener('keypress', (e) => {
   const description = e.target.value.trim();
   if (e.key === 'Enter' && description) {
     const newTodo = {
-      index: todos.length,
+      index: todos.length + 1,
       description,
       isCompleted: false,
     };
