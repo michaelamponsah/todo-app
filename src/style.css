@@ -125,6 +125,11 @@ i {
   cursor: move;
 }
 
+.delete {
+  display: none !important;
+  color: rgba(255, 195, 0, 0.6);
+}
+
 .btn {
   width: 100%;
   border: none;
