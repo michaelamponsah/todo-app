@@ -2,8 +2,8 @@ import 'lodash';
 import './style.css';
 
 import todoListBuilder from './modules/todoListBuilder.js';
-import saveResourceToLocalStorage from './modules/saveResourceToLocalStorage.js';
 import getResourceFromLocalStorage from './modules/getResourceFromLocalStorage.js';
+import saveTodo from './modules/saveTodo.js';
 
 const todoListWrapper = document.querySelector('[data-list-wrapper]');
 const todoInputField = document.querySelector('[data-todo-input]');
@@ -11,38 +11,29 @@ const todoInputField = document.querySelector('[data-todo-input]');
 
 const dataFromStorage = getResourceFromLocalStorage('todos');
 
-const data = dataFromStorage ? [...dataFromStorage] : [];
+const todos = dataFromStorage ? [...dataFromStorage] : [];
 
-const renderData = (data) => {
-  if (!data) return;
+const renderData = () => {
+  if (!todos) return;
 
-  data.forEach((listItem) => {
+  todos.forEach((listItem) => {
     todoListWrapper.innerHTML += todoListBuilder(listItem);
   });
 };
 
-renderData(data);
+window.onload = renderData();
 
 todoInputField.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    const todoObject = {
-      index: data.length,
-      description: e.target.value,
+  const description = e.target.value.trim();
+  if (e.key === 'Enter' && description) {
+    const newTodo = {
+      index: todos.length,
+      description,
       isCompleted: false,
     };
 
     e.target.value = '';
-
-    if (!dataFromStorage) {
-      data.push(todoObject);
-      saveResourceToLocalStorage('todos', data);
-      window.location.reload();
-      return true;
-    }
-
-    const newEntry = [...data];
-    newEntry.push(todoObject);
-    saveResourceToLocalStorage('todos', newEntry);
+    saveTodo(newTodo);
     window.location.reload();
   }
   return true;
