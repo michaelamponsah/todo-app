@@ -10,7 +10,6 @@ const todoInputField = document.querySelector('[data-todo-input]');
 // const addBtn = document.querySelector('[data-add-btn]');
 
 const dataFromStorage = getResourceFromLocalStorage('todos');
-
 const todos = dataFromStorage ? [...dataFromStorage] : [];
 
 const renderData = () => {
@@ -37,4 +36,24 @@ todoInputField.addEventListener('keypress', (e) => {
     window.location.reload();
   }
   return true;
+});
+
+const elipses = document.querySelectorAll('.elipsis');
+const listItems = document.querySelectorAll('.todo-list-item--wrapper');
+const textEntries = document.querySelectorAll('.description');
+
+elipses.forEach((elipse) => {
+  elipse.addEventListener('click', () => {
+    console.log('click');
+  });
+});
+
+textEntries.forEach((entry) => {
+  entry.addEventListener('click', () => {
+    entry.setAttribute('contentEditable', true);
+    entry.focus();
+    if (document.activeElement === entry) {
+      entry.closest('.todo-list-item--wrapper').style.backgroundColor = 'rgba(255, 195, 0, 0.2)';
+    }
+  });
 });
