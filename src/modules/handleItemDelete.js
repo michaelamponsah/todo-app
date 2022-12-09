@@ -15,6 +15,7 @@ const handleItemDelete = (index) => {
 
   saveResourceToLocalStorage('todos', todos);
   renderData(todos, todoListWrapper);
+  window.location.reload();
 };
 
 export default handleItemDelete;
