@@ -70,7 +70,11 @@ textEntries.forEach((textEntry) => {
 // Delete todo item
 deleteIcons.forEach((icon, index) => {
   icon.addEventListener('click', () => {
-    console.log('click');
     handleItemDelete(index);
   });
+});
+
+// Handle page reload
+document.querySelector('[data-refresh]').addEventListener('click', () => {
+  window.location.reload();
 });
