@@ -6,6 +6,7 @@ import saveTodo from './modules/saveTodo.js';
 import renderData from './modules/renderData.js';
 import handleItemFocus from './modules/handleItemFocus.js';
 import updateTodo from './modules/updateTodo.js';
+import handleItemDelete from './modules/handleItemDelete.js';
 
 const todoListWrapper = document.querySelector('[data-list-wrapper]');
 const todoInputField = document.querySelector('[data-todo-input]');
@@ -22,7 +23,7 @@ todoInputField.addEventListener('keypress', (e) => {
   const description = e.target.value.trim();
   if (e.key === 'Enter' && description) {
     const newTodo = {
-      index: todosArray.length + 1,
+      // index: todosArray.length + 1,
       description,
       isCompleted: false,
     };
@@ -68,8 +69,8 @@ textEntries.forEach((textEntry) => {
 });
 
 // Delete todo item
-deleteIcons.forEach((item) => {
-  item.addEventListener('click', (e) => {
-    console.log('click');
+deleteIcons.forEach((item, index) => {
+  item.addEventListener('click', () => {
+    handleItemDelete(index);
   });
 });

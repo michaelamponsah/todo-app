@@ -2,16 +2,17 @@ import getResourceFromLocalStorage from './getResourceFromLocalStorage.js';
 import renderData from './renderData.js';
 import saveResourceToLocalStorage from './saveResourceToLocalStorage.js';
 
-const todos = getResourceFromLocalStorage('todos') || [];
+const todos = getResourceFromLocalStorage('todos');
 const todoListWrapper = document.querySelector('[data-list-wrapper]');
 
-const saveTodo = (newTodo) => {
-  newTodo.index = todos.length;
-  todos.push(newTodo);
+const handleItemDelete = (index) => {
+  todos.splice(index, 1);
+  todos.forEach((todo, index) => {
+    todo.index = index;
+  });
 
   saveResourceToLocalStorage('todos', todos);
   renderData(todos, todoListWrapper);
-  return true;
 };
 
-export default saveTodo;
+export default handleItemDelete;
