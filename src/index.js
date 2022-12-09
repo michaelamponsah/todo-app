@@ -26,6 +26,7 @@ todoInputField.addEventListener('keypress', (e) => {
       description,
       isCompleted: false,
     };
+
     e.target.value = '';
     saveTodo(newTodo);
   }
