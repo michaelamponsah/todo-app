@@ -7,6 +7,8 @@ const todoListWrapper = document.querySelector('[data-list-wrapper]');
 
 const handleItemDelete = (index) => {
   todos.splice(index, 1);
+
+  // Reassign the indexes of the todos
   todos.forEach((todo, index) => {
     todo.index = index;
   });

@@ -23,7 +23,6 @@ todoInputField.addEventListener('keypress', (e) => {
   const description = e.target.value.trim();
   if (e.key === 'Enter' && description) {
     const newTodo = {
-      // index: todosArray.length + 1,
       description,
       isCompleted: false,
     };
@@ -69,8 +68,9 @@ textEntries.forEach((textEntry) => {
 });
 
 // Delete todo item
-deleteIcons.forEach((item, index) => {
-  item.addEventListener('click', () => {
+deleteIcons.forEach((icon, index) => {
+  icon.addEventListener('click', () => {
+    console.log('click');
     handleItemDelete(index);
   });
 });
