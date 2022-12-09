@@ -131,12 +131,12 @@ i {
   cursor: move;
 }
 
-.icon-hide {
-  display: none !important;
+.icon-delete {
+  color: rgba(255, 195, 0, 0.5);
 }
 
-.delete {
-  color: rgba(255, 195, 0, 0.5);
+.btn-delete {
+  border: none;
 }
 
 .active-item {

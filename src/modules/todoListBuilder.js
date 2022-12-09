@@ -7,9 +7,8 @@ const todoListBuilder = (data) => {
           <input type="checkbox">
           <input type="text" class="description" value="${description}"></input>
         </div>
-        <i class="fa-solid fa-trash icon-hide icon" data-delete></i>
-        <i class="fa-solid fa-ellipsis-vertical elipsis" data-elipses></i>
-      </div>
+        <i class="fa-solid fa-trash icon" data-delete></i>
+        </div>
       <span class="divider"></span>
     </li>
   `;

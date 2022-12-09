@@ -32,17 +32,11 @@ todoInputField.addEventListener('keypress', (e) => {
   return true;
 });
 
-const elipses = document.querySelectorAll('[data-elipses]');
 const textEntries = document.querySelectorAll('.description');
 const deleteIcons = document.querySelectorAll('[data-delete]');
 
-elipses.forEach((elipse) => {
-  elipse.addEventListener('click', () => {
-  });
-});
-
 // Handle focus of active todo items
-handleItemFocus(elipses, textEntries, deleteIcons);
+handleItemFocus(textEntries, deleteIcons);
 
 // Update todo items
 textEntries.forEach((textEntry) => {
@@ -70,5 +64,12 @@ textEntries.forEach((textEntry) => {
       description: updatedDescription,
     };
     updateTodo(updatedTodo);
+  });
+});
+
+// Delete todo item
+deleteIcons.forEach((item) => {
+  item.addEventListener('click', (e) => {
+    console.log('click');
   });
 });
