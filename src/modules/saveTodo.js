@@ -1,14 +1,16 @@
 import getResourceFromLocalStorage from './getResourceFromLocalStorage.js';
+import renderData from './renderData.js';
 import saveResourceToLocalStorage from './saveResourceToLocalStorage.js';
 
-let todos = getResourceFromLocalStorage('todos');
+const todos = getResourceFromLocalStorage('todos') || [];
+const todoListWrapper = document.querySelector('[data-list-wrapper]');
 
 const saveTodo = (newTodo) => {
-  if (!todos) {
-    todos = [];
-  }
+  newTodo.index = todos.length + 1;
   todos.push(newTodo);
+
   saveResourceToLocalStorage('todos', todos);
+  renderData(todos, todoListWrapper);
   return true;
 };
 
