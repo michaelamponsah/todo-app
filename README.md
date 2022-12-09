@@ -19,7 +19,7 @@
 # 📖 [Awesome Books] <a name=""></a>
 
 
-**[Awesome Books]** is a library management tool.
+**[Awesome Todos]** is a task management tool.
 
 ## 🛠 Built With <a name="HTML, CSS & JavaScript"></a>
 
