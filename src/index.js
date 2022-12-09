@@ -1,59 +1,74 @@
 import 'lodash';
 import './style.css';
 
-import todoListBuilder from './modules/todoListBuilder.js';
 import getResourceFromLocalStorage from './modules/getResourceFromLocalStorage.js';
 import saveTodo from './modules/saveTodo.js';
+import renderData from './modules/renderData.js';
+import handleItemFocus from './modules/handleItemFocus.js';
+import updateTodo from './modules/updateTodo.js';
 
 const todoListWrapper = document.querySelector('[data-list-wrapper]');
 const todoInputField = document.querySelector('[data-todo-input]');
-// const addBtn = document.querySelector('[data-add-btn]');
 
+// Get data from local storage
 const dataFromStorage = getResourceFromLocalStorage('todos');
-const todos = dataFromStorage ? [...dataFromStorage] : [];
+const todosArray = dataFromStorage ? [...dataFromStorage] : [];
 
-const renderData = () => {
-  if (!todos) return;
+// Render data when page loads
+window.onload = renderData(todosArray, todoListWrapper);
 
-  todos.forEach((listItem) => {
-    todoListWrapper.innerHTML += todoListBuilder(listItem);
-  });
-};
-
-window.onload = renderData();
-
+// Get input from user
 todoInputField.addEventListener('keypress', (e) => {
   const description = e.target.value.trim();
   if (e.key === 'Enter' && description) {
     const newTodo = {
-      index: todos.length + 1,
+      index: todosArray.length + 1,
       description,
       isCompleted: false,
     };
-
     e.target.value = '';
     saveTodo(newTodo);
-    window.location.reload();
   }
   return true;
 });
 
-const elipses = document.querySelectorAll('.elipsis');
-const listItems = document.querySelectorAll('.todo-list-item--wrapper');
+const elipses = document.querySelectorAll('[data-elipses]');
 const textEntries = document.querySelectorAll('.description');
+const deleteIcons = document.querySelectorAll('[data-delete]');
 
 elipses.forEach((elipse) => {
   elipse.addEventListener('click', () => {
-    console.log('click');
   });
 });
 
-textEntries.forEach((entry) => {
-  entry.addEventListener('click', () => {
-    entry.setAttribute('contentEditable', true);
-    entry.focus();
-    if (document.activeElement === entry) {
-      entry.closest('.todo-list-item--wrapper').style.backgroundColor = 'rgba(255, 195, 0, 0.2)';
+// Handle focus of active todo items
+handleItemFocus(elipses, textEntries, deleteIcons);
+
+// Update todo items
+textEntries.forEach((textEntry) => {
+  textEntry.addEventListener('keypress', (e) => {
+    const updatedDescription = e.target.value.trim();
+    const todoId = e.target.closest('.todo-list-item--wrapper').getAttribute('id');
+
+    if (e.key === 'Enter' && updatedDescription) {
+      const updatedTodo = {
+        index: todoId,
+        description: updatedDescription,
+      };
+      updateTodo(updatedTodo);
     }
+  });
+});
+
+textEntries.forEach((textEntry) => {
+  textEntry.addEventListener('change', (e) => {
+    const updatedDescription = e.target.value.trim();
+    const todoId = e.target.closest('.todo-list-item--wrapper').getAttribute('id');
+
+    const updatedTodo = {
+      index: todoId,
+      description: updatedDescription,
+    };
+    updateTodo(updatedTodo);
   });
 });
