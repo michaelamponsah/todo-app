@@ -114,7 +114,13 @@ i {
 
 .description {
   margin-left: 0.5em;
+  margin-right: 0.5em;
   min-width: calc(100% - 35px);
+  background-color: rgba(255, 195, 0, 0.01);
+}
+
+.description:focus {
+  background-color: rgba(255, 195, 0, 0.01);
 }
 
 .icon:hover {
@@ -125,9 +131,16 @@ i {
   cursor: move;
 }
 
-.delete {
+.icon-hide {
   display: none !important;
-  color: rgba(255, 195, 0, 0.6);
+}
+
+.delete {
+  color: rgba(255, 195, 0, 0.5);
+}
+
+.active-item {
+  background-color: rgba(255, 195, 0, 0.2);
 }
 
 .btn {
