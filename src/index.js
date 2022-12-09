@@ -30,6 +30,7 @@ todoInputField.addEventListener('keypress', (e) => {
     e.target.value = '';
     saveTodo(newTodo);
   }
+
   return true;
 });
 
