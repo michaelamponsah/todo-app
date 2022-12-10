@@ -16,7 +16,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 [Awesome Books] <a name=""></a>
+# 📖 [Awesome Todos] <a name=""></a>
 
 
 **[Awesome Todos]** is a task management tool.
