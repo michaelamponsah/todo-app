@@ -7,6 +7,7 @@ import renderData from './modules/renderData.js';
 import handleItemFocus from './modules/handleItemFocus.js';
 import updateTodo from './modules/updateTodo.js';
 import handleItemDelete from './modules/handleItemDelete.js';
+import handleTaskComplete from './modules/handleTaskComplete.js';
 
 const todoListWrapper = document.querySelector('[data-list-wrapper]');
 const todoInputField = document.querySelector('[data-todo-input]');
@@ -79,4 +80,13 @@ deleteIcons.forEach((icon, index) => {
 // Handle page reload
 document.querySelector('[data-refresh]').addEventListener('click', () => {
   window.location.reload();
+});
+
+// Handle todo complete status
+document.querySelectorAll('[data-inputcheck]').forEach((inputCheck, index) => {
+  inputCheck.addEventListener('change', (e) => {
+    e.target.toggleAttribute('checked');
+    const isCompleted = textEntries[index].toggleAttribute('data-task-complete');
+    handleTaskComplete(index, isCompleted);
+  });
 });
