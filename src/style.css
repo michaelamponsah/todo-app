@@ -120,7 +120,7 @@ i {
   font-style: normal;
 }
 
-.description:read-only     {
+.description:read-only {
   color: rgb(83, 133, 83);
   text-decoration: line-through;
 }
