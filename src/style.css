@@ -117,6 +117,12 @@ i {
   margin-right: 0.5em;
   min-width: calc(100% - 35px);
   background-color: rgba(255, 195, 0, 0.01);
+  font-style: normal;
+}
+
+.description:read-only     {
+  color: rgb(83, 133, 83);
+  text-decoration: line-through;
 }
 
 .description:focus {
