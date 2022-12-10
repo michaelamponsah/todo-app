@@ -10,7 +10,7 @@ const handleItemDelete = (index) => {
 
   // Reassign the indexes of the todos
   todos.forEach((todo, index) => {
-    todo.index = index;
+    todo.index = index + 1;
   });
 
   saveResourceToLocalStorage('todos', todos);

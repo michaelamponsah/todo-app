@@ -6,7 +6,7 @@ const todos = getResourceFromLocalStorage('todos') || [];
 const todoListWrapper = document.querySelector('[data-list-wrapper]');
 
 const saveTodo = (newTodo) => {
-  newTodo.index = todos.length;
+  newTodo.index = todos.length + 1;
   todos.push(newTodo);
 
   saveResourceToLocalStorage('todos', todos);

@@ -8,6 +8,7 @@ import handleItemFocus from './modules/handleItemFocus.js';
 import updateTodo from './modules/updateTodo.js';
 import handleItemDelete from './modules/handleItemDelete.js';
 import handleTaskComplete from './modules/handleTaskComplete.js';
+import handleClearAll from './modules/handleClearAll.js';
 
 const todoListWrapper = document.querySelector('[data-list-wrapper]');
 const todoInputField = document.querySelector('[data-todo-input]');
@@ -30,6 +31,7 @@ todoInputField.addEventListener('keypress', (e) => {
 
     e.target.value = '';
     saveTodo(newTodo);
+    window.location.reload();
   }
 
   return true;
@@ -85,8 +87,13 @@ document.querySelector('[data-refresh]').addEventListener('click', () => {
 // Handle todo complete status
 document.querySelectorAll('[data-inputcheck]').forEach((inputCheck, index) => {
   inputCheck.addEventListener('change', (e) => {
-    e.target.toggleAttribute('checked');
-    const isCompleted = textEntries[index].toggleAttribute('data-task-complete');
+    const isCompleted = e.target.toggleAttribute('checked');
+    textEntries[index].toggleAttribute('data-task-complete');
     handleTaskComplete(index, isCompleted);
   });
+});
+
+// Handle clear all
+document.querySelector('[data-clear-btn]').addEventListener('click', () => {
+  handleClearAll(todosArray);
 });

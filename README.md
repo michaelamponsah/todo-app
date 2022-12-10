@@ -16,7 +16,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 [Awesome Books] <a name=""></a>
+# 📖 [Awesome Todos] <a name=""></a>
 
 
 **[Awesome Todos]** is a task management tool.
@@ -131,6 +131,6 @@ My gratitude goes to Microvers for providing me with the wireframe design for th
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./LICENCE.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
