@@ -8,7 +8,7 @@ import handleItemFocus from './modules/handleItemFocus.js';
 import updateTodo from './modules/updateTodo.js';
 import handleItemDelete from './modules/handleItemDelete.js';
 import handleTaskComplete from './modules/handleTaskComplete.js';
-import handleClearAll from './modules/handleClearAll';
+import handleClearAll from './modules/handleClearAll.js';
 
 const todoListWrapper = document.querySelector('[data-list-wrapper]');
 const todoInputField = document.querySelector('[data-todo-input]');
