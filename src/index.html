@@ -15,20 +15,20 @@
         <div>
           <div class="todo-list--title-wrapper padding">
             <h4 class="title">Today's To Do</h4>
-            <i class="fa-solid fa-arrows-rotate icon"></i>
+            <i class="fa-solid fa-arrows-rotate icon" data-refresh></i>
           </div>
           <span class="divider"></span>
         </div>
         <div class="header--input-wrapper">
-          <div  class="padding">
-            <input type="text" placeholder="Add to your list..." >
+          <div class="input-wrapper padding">
+            <input type="text" placeholder="Add to your list..." data-todo-input>
           </div>
           <span class="divider"></span>
         </div>
       </div>
-      <ul class="todo-list--body" data-list-wrapper>
-      </ul>
-      <button class="btn">Clear all completed</button>
+      <div data-list-wrapper>
+      </div>
+      <button class="btn" data-add-btn>Clear all completed</button>
     </section>
   </main>
   <script src="https://kit.fontawesome.com/5877810b19.js" crossorigin="anonymous"></script>

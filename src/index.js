@@ -1,28 +1,92 @@
 import 'lodash';
 import './style.css';
 
-import todoListBuilder from './modules/todoListBuilder.js';
+import getResourceFromLocalStorage from './modules/getResourceFromLocalStorage.js';
+import saveTodo from './modules/saveTodo.js';
+import renderData from './modules/renderData.js';
+import handleItemFocus from './modules/handleItemFocus.js';
+import updateTodo from './modules/updateTodo.js';
+import handleItemDelete from './modules/handleItemDelete.js';
+import handleTaskComplete from './modules/handleTaskComplete.js';
 
 const todoListWrapper = document.querySelector('[data-list-wrapper]');
+const todoInputField = document.querySelector('[data-todo-input]');
 
-const data = [
+// Get data from local storage
+const dataFromStorage = getResourceFromLocalStorage('todos');
+const todosArray = dataFromStorage ? [...dataFromStorage] : [];
 
-  {
-    index: 1,
-    description: 'do my laundry',
-    isCompleted: false,
-  },
-  {
-    index: 2,
-    description: 'build a new feature for fitness app',
-    isCompleted: false,
-  },
-];
+// Render data when page loads
+window.onload = renderData(todosArray, todoListWrapper);
 
-const renderData = () => {
-  data.forEach((listItem) => {
-    todoListWrapper.innerHTML += todoListBuilder(listItem);
+// Get input from user
+todoInputField.addEventListener('keypress', (e) => {
+  const description = e.target.value.trim();
+  if (e.key === 'Enter' && description) {
+    const newTodo = {
+      description,
+      isCompleted: false,
+    };
+
+    e.target.value = '';
+    saveTodo(newTodo);
+  }
+
+  return true;
+});
+
+const textEntries = document.querySelectorAll('.description');
+const deleteIcons = document.querySelectorAll('[data-delete]');
+
+// Handle focus of active todo items
+handleItemFocus(textEntries, deleteIcons);
+
+// Update todo items
+textEntries.forEach((textEntry) => {
+  textEntry.addEventListener('keypress', (e) => {
+    const updatedDescription = e.target.value.trim();
+    const todoId = e.target.closest('.todo-list-item--wrapper').getAttribute('id');
+
+    if (e.key === 'Enter' && updatedDescription) {
+      const updatedTodo = {
+        index: todoId,
+        description: updatedDescription,
+      };
+      updateTodo(updatedTodo);
+    }
   });
-};
+});
 
-window.onload = renderData;
+textEntries.forEach((textEntry) => {
+  textEntry.addEventListener('change', (e) => {
+    const updatedDescription = e.target.value.trim();
+    const todoId = e.target.closest('.todo-list-item--wrapper').getAttribute('id');
+
+    const updatedTodo = {
+      index: todoId,
+      description: updatedDescription,
+    };
+    updateTodo(updatedTodo);
+  });
+});
+
+// Delete todo item
+deleteIcons.forEach((icon, index) => {
+  icon.addEventListener('click', () => {
+    handleItemDelete(index);
+  });
+});
+
+// Handle page reload
+document.querySelector('[data-refresh]').addEventListener('click', () => {
+  window.location.reload();
+});
+
+// Handle todo complete status
+document.querySelectorAll('[data-inputcheck]').forEach((inputCheck, index) => {
+  inputCheck.addEventListener('change', (e) => {
+    e.target.toggleAttribute('checked');
+    const isCompleted = textEntries[index].toggleAttribute('data-task-complete');
+    handleTaskComplete(index, isCompleted);
+  });
+});

@@ -37,14 +37,22 @@ main {
   min-height: 100vh;
 }
 
+[contenteditable] {
+  outline: none;
+}
+
 .padding {
   padding: 0 0.8em;
+}
+
+.bg-edit {
+  background-color: rgba(255, 195, 0, 0.2);
 }
 
 .todo-list-wrapper {
   background-color: #fff;
   width: 35%;
-  min-height: 200px;
+  min-height: 100px;
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
   position: relative;
 }
@@ -53,9 +61,17 @@ main {
   padding-top: 0.8em;
 }
 
+.input-wrapper {
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+}
+
 .todo-list--title-wrapper {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
 }
 
 .divider {
@@ -63,7 +79,6 @@ main {
   height: 2px;
   width: 100%;
   background-color: #f6f6f6;
-  margin: 0.7em 0;
 }
 
 input[type="text"] {
@@ -86,7 +101,26 @@ i {
 
 .todo-list--item {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+}
+
+.input-desc-wrapper {
+  display: flex;
+  flex-grow: 1;
+}
+
+.description {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  min-width: calc(100% - 35px);
+  background-color: rgba(255, 195, 0, 0.01);
+}
+
+.description:focus {
+  background-color: rgba(255, 195, 0, 0.01);
 }
 
 .icon:hover {
@@ -97,11 +131,22 @@ i {
   cursor: move;
 }
 
+.icon-delete {
+  color: rgba(255, 195, 0, 0.5);
+}
+
+.btn-delete {
+  border: none;
+}
+
+.active-item {
+  background-color: rgba(255, 195, 0, 0.2);
+}
+
 .btn {
   width: 100%;
   border: none;
   height: 50px;
-  margin-top: -0.65em;
   background-color: #f6f6f6;
   color: #bdbdbd;
   position: sticky;
