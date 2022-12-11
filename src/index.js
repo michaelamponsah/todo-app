@@ -15,7 +15,7 @@ const todoInputField = document.querySelector('[data-todo-input]');
 
 // Get data from local storage
 const dataFromStorage = getResourceFromLocalStorage('todos');
-const todosArray = dataFromStorage ? [...dataFromStorage] : [];
+const todosArray = dataFromStorage || [];
 
 // Render data when page loads
 window.onload = renderData(todosArray, todoListWrapper);
@@ -40,7 +40,7 @@ todoInputField.addEventListener('keypress', (e) => {
 const textEntries = document.querySelectorAll('.description');
 const deleteIcons = document.querySelectorAll('[data-delete]');
 
-// Handle focus of active todo items
+// Handle focus (background color) of active todo items
 handleItemFocus(textEntries, deleteIcons);
 
 // Update todo items

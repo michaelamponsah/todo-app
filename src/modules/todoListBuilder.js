@@ -1,6 +1,6 @@
 const todoListBuilder = (data) => {
   const { index, description, isCompleted } = data;
-  const listItem = `
+  const listItemMarkup = `
     <li class="todo-list-item--wrapper" id="${index}" data-completed=${isCompleted} data-id${index}>
       <div class="todo-list--item padding">
         <div class="input-desc-wrapper">
@@ -12,7 +12,7 @@ const todoListBuilder = (data) => {
       <span class="divider"></span>
     </li>
   `;
-  return listItem;
+  return listItemMarkup;
 };
 
 export default todoListBuilder;
