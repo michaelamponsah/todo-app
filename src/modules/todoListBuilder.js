@@ -1,7 +1,7 @@
 const todoListBuilder = (data) => {
-  const { index, description, isCompleted } = data;
+  const { description, isCompleted } = data;
   const listItemMarkup = `
-    <li class="todo-list-item--wrapper" id="${index}" data-completed=${isCompleted} data-id${index}>
+    <li class="todo-list-item--wrapper">
       <div class="todo-list--item padding">
         <div class="input-desc-wrapper">
           <input type="checkbox" data-inputcheck ${isCompleted ? 'checked' : ''}>
