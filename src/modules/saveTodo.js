@@ -1,5 +1,5 @@
 import getResourceFromLocalStorage from './getResourceFromLocalStorage.js';
-import renderData from './renderData.js';
+import addToMarkup from './addToMarkup.js';
 import saveResourceToLocalStorage from './saveResourceToLocalStorage.js';
 
 const todos = getResourceFromLocalStorage('todos') || [];
@@ -10,7 +10,7 @@ const saveTodo = (newTodo) => {
   todos.push(newTodo);
 
   saveResourceToLocalStorage('todos', todos);
-  renderData(todos, todoListWrapper);
+  addToMarkup(newTodo, todoListWrapper);
   return true;
 };
 
