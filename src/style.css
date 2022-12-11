@@ -81,12 +81,14 @@ main {
   background-color: #f6f6f6;
 }
 
+.data-input-field,
 input[type="text"] {
   width: 100%;
   border: none;
   font-style: italic;
 }
 
+.data-input-field:focus,
 input[type="text"]:focus {
   outline: none;
 }
