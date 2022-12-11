@@ -3,14 +3,14 @@ import './style.css';
 
 import getResourceFromLocalStorage from './modules/getResourceFromLocalStorage.js';
 import saveTodo from './modules/saveTodo.js';
-import renderData from './modules/renderData.js';
+// import renderData from './modules/addToMarkup.js';
 import handleItemFocus from './modules/handleItemFocus.js';
 import updateTodo from './modules/updateTodo.js';
 import handleItemDelete from './modules/handleItemDelete.js';
 import handleTaskComplete from './modules/handleTaskComplete.js';
 import handleClearAll from './modules/handleClearAll.js';
+import loadToDos from './modules/loadToDos.js';
 
-const todoListWrapper = document.querySelector('[data-list-wrapper]');
 const todoInputField = document.querySelector('[data-todo-input]');
 
 // Get data from local storage
@@ -18,7 +18,7 @@ const dataFromStorage = getResourceFromLocalStorage('todos');
 const todosArray = dataFromStorage || [];
 
 // Render data when page loads
-window.onload = renderData(todosArray, todoListWrapper);
+window.onload = loadToDos(todosArray);
 
 // Get input from user
 todoInputField.addEventListener('keypress', (e) => {
@@ -31,7 +31,7 @@ todoInputField.addEventListener('keypress', (e) => {
 
     e.target.value = '';
     saveTodo(newTodo);
-    window.location.reload();
+    // window.location.reload();
   }
 
   return true;
