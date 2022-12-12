@@ -6,6 +6,8 @@ const addToMarkup = (data, location) => {
   // location.innerHTML = '';
   const li = document.createElement('li');
   li.classList.add('todo-list-item--wrapper');
+  li.setAttribute('id', `todo-${data.index}`);
+
   li.innerHTML = todoListBuilder(data);
   location.insertAdjacentElement('beforeend', li);
 
