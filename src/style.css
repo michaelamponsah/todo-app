@@ -33,7 +33,7 @@ main {
   background-color: #f6f6f6;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
 }
 
@@ -51,6 +51,7 @@ main {
 
 .todo-list-wrapper {
   background-color: #fff;
+  margin-top: 5rem;
   width: 45%;
   min-height: 100px;
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
