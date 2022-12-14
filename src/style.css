@@ -122,7 +122,8 @@ i {
   font-style: normal !important;
 }
 
-.description:read-only {
+.description:read-only,
+.readOnly {
   color: rgb(83, 133, 83);
   text-decoration: line-through;
   font-style: italic !important;

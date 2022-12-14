@@ -1,9 +1,8 @@
 import getResourceFromLocalStorage from './getResourceFromLocalStorage.js';
 import saveResourceToLocalStorage from './saveResourceToLocalStorage.js';
 
-const todos = getResourceFromLocalStorage('todos');
-
 const handleItemDelete = (index) => {
+  const todos = getResourceFromLocalStorage('todos');
   todos.splice(index, 1);
 
   // Reassign the indexes of the todos

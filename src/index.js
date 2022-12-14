@@ -46,10 +46,11 @@ textEntries.forEach((textEntry) => {
   textEntry.addEventListener('keypress', (e) => {
     const updatedDescription = e.target.value.trim();
     const todoId = e.target.closest('.todo-list-item--wrapper').getAttribute('id');
+    const index = Number.parseInt(todoId.slice(5), 10);
 
     if (e.key === 'Enter' && updatedDescription) {
       const updatedTodo = {
-        index: todoId,
+        index,
         description: updatedDescription,
       };
       updateTodo(updatedTodo);
@@ -61,9 +62,10 @@ textEntries.forEach((textEntry) => {
   textEntry.addEventListener('change', (e) => {
     const updatedDescription = e.target.value.trim();
     const todoId = e.target.closest('.todo-list-item--wrapper').getAttribute('id');
+    const index = Number.parseInt(todoId.slice(5), 10);
 
     const updatedTodo = {
-      index: todoId,
+      index,
       description: updatedDescription,
     };
     updateTodo(updatedTodo);

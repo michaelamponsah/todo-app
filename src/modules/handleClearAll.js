@@ -8,6 +8,7 @@ const handleClearAll = (todos) => {
   updatedTodos.forEach((todo, index) => {
     todo.index = index + 1;
   });
+
   saveResourceToLocalStorage('todos', updatedTodos);
   renderTodos(updatedTodos, todoListWrapper);
 };
