@@ -103,5 +103,5 @@ todoListWrapper.addEventListener('change', (e) => {
 
 // Handle clear all
 document.querySelector('[data-clear-btn]').addEventListener('click', () => {
-  handleClearAll(todosArray);
+  handleClearAll(getResourceFromLocalStorage('todos'));
 });
