@@ -44,12 +44,12 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-<!-- ## 🚀 Live Demo <a name="live-demo"></a>
+## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- [You may see a live demo here](https://michaelamponsah.github.io/todo-app/)
+- You may see a live demo [here](https://michaelamponsah.github.io/todo-app/dist)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## 💻 Getting Started <a name="getting-started"></a>
