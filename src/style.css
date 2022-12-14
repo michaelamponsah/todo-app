@@ -51,7 +51,7 @@ main {
 
 .todo-list-wrapper {
   background-color: #fff;
-  width: 35%;
+  width: 45%;
   min-height: 100px;
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
   position: relative;
@@ -81,12 +81,14 @@ main {
   background-color: #f6f6f6;
 }
 
+.data-input-field,
 input[type="text"] {
   width: 100%;
   border: none;
   font-style: italic;
 }
 
+.data-input-field:focus,
 input[type="text"]:focus {
   outline: none;
 }
@@ -120,7 +122,8 @@ i {
   font-style: normal !important;
 }
 
-.description:read-only {
+.description:read-only,
+.readOnly {
   color: rgb(83, 133, 83);
   text-decoration: line-through;
   font-style: italic !important;
