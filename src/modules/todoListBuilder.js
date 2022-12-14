@@ -1,7 +1,6 @@
 const todoListBuilder = (data) => {
-  const { index, description, isCompleted } = data;
-  const listItem = `
-    <li class="todo-list-item--wrapper" id="${index}" data-completed=${isCompleted} data-id${index}>
+  const { description, isCompleted } = data;
+  const listItemMarkup = `
       <div class="todo-list--item padding">
         <div class="input-desc-wrapper">
           <input type="checkbox" data-inputcheck ${isCompleted ? 'checked' : ''}>
@@ -10,9 +9,8 @@ const todoListBuilder = (data) => {
         <i class="fa-solid fa-trash icon" data-delete></i>
         </div>
       <span class="divider"></span>
-    </li>
   `;
-  return listItem;
+  return listItemMarkup;
 };
 
 export default todoListBuilder;
