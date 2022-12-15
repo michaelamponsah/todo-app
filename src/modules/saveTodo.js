@@ -11,7 +11,8 @@ const saveTodo = (newTodo) => {
 
   saveResourceToLocalStorage('todos', todos);
   addToMarkup(newTodo, todoListWrapper);
-  return true;
+
+  return todos.length;
 };
 
 export default saveTodo;
