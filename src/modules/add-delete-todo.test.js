@@ -18,6 +18,18 @@ describe('Add/remove todo task item to/from local storage and DOM', () => {
     expect(list).toHaveLength(2);
   });
 
+  test('Remove a single todo from local storage & DOM', () => {
+    // Act
+    const deletedTodo = handleItemDelete(0);
+    // Assert
+    expect(deletedTodo).toHaveLength(1);
+    expect(deletedTodo[0]).toEqual({
+      description: 'test 1',
+      index: 1,
+      isCompleted: false,
+    });
+  });
+
   test('Add a single todo to local storage', () => {
     const newLength = saveTodo(testData);
     expect(newLength).toEqual(2);
