@@ -5,6 +5,7 @@ import saveTodo from './saveTodo.js';
 jest.mock('./getResourceFromLocalStorage');
 jest.mock('./saveResourceToLocalStorage');
 jest.mock('./addToMarkup');
+jest.mock('./renderTodos');
 
 describe('Add/remove todo task item to/from local storage and DOM', () => {
   const testData = {
