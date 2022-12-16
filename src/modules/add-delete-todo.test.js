@@ -35,3 +35,20 @@ describe('Add/remove todo task item to/from local storage and DOM', () => {
     expect(newLength).toEqual(2);
   });
 });
+
+describe('Testing updateTodo(), handleTaskComplete() and handleClearAll()', () => {
+  test('updateTodo() test', () => {
+    // Arrange
+    const testData = {
+      description: 'Updated task',
+      index: 1,
+      isCompleted: false,
+    };
+
+    // Act
+    const updatedTask = updateTodo(testData);
+
+    // Assert
+    expect(updatedTask).toEqual(testData);
+  });
+});
