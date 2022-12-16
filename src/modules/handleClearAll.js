@@ -11,6 +11,8 @@ const handleClearAll = (todos) => {
 
   saveResourceToLocalStorage('todos', updatedTodos);
   renderTodos(updatedTodos, todoListWrapper);
+
+  return updatedTodos;
 };
 
 export default handleClearAll;
