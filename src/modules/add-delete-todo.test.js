@@ -1,6 +1,8 @@
 import addToMarkup from './addToMarkup.js';
 import handleItemDelete from './handleItemDelete.js';
+import handleTaskComplete from './handleTaskComplete.js';
 import saveTodo from './saveTodo.js';
+import updateTodo from './updateTodo.js';
 
 jest.mock('./getResourceFromLocalStorage');
 jest.mock('./saveResourceToLocalStorage');
@@ -51,5 +53,14 @@ describe('Testing updateTodo(), handleTaskComplete() and handleClearAll()', () =
 
     // Assert
     expect(updatedTask).toEqual(testData);
+  });
+
+  test('Check completed status', () => {
+    const updatedTask = handleTaskComplete(0, true);
+    expect(updatedTask).toEqual({
+      description: 'test 1',
+      index: 1,
+      isCompleted: true,
+    });
   });
 });

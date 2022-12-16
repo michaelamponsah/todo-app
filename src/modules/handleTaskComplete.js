@@ -9,6 +9,8 @@ const handleTaskComplete = (index, isCompleted) => {
   todos[index].isCompleted = isCompleted;
   saveResourceToLocalStorage('todos', todos);
   renderTodos(todos, todoListWrapper);
+
+  return todos[index];
 };
 
 export default handleTaskComplete;
