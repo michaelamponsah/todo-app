@@ -3,6 +3,8 @@ import handleItemDelete from './handleItemDelete.js';
 import handleTaskComplete from './handleTaskComplete.js';
 import saveTodo from './saveTodo.js';
 import updateTodo from './updateTodo.js';
+import getResourceFromLocalStorage from './__mocks__/getResourceFromLocalStorage.js';
+import handleClearAll from './handleClearAll.js';
 
 jest.mock('./getResourceFromLocalStorage');
 jest.mock('./saveResourceToLocalStorage');
@@ -35,7 +37,7 @@ describe('Add/remove todo task item to/from local storage and DOM', () => {
 
   test('Add a single todo to local storage', () => {
     const newLength = saveTodo(testData);
-    expect(newLength).toEqual(2);
+    expect(newLength).toBe(4);
   });
 });
 
@@ -62,5 +64,12 @@ describe('Testing updateTodo(), handleTaskComplete() and handleClearAll()', () =
       index: 1,
       isCompleted: true,
     });
+  });
+
+  test('Check validity of clear all completed function', () => {
+    const testData = getResourceFromLocalStorage();
+
+    const result = handleClearAll(testData);
+    expect(result.length).toBe(2);
   });
 });
