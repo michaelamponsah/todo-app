@@ -10,7 +10,7 @@ const updateTodo = (updatedTodo) => {
 
   saveResourceToLocalStorage('todos', todos);
   renderTodos(todos, todoListWrapper);
-  return ( todos[updatedTodo.index - 1]);
+  return (todos[updatedTodo.index - 1]);
 };
 
 export default updateTodo;

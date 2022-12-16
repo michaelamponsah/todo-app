@@ -65,7 +65,7 @@ describe('Testing updateTodo(), handleTaskComplete() and handleClearAll()', () =
       isCompleted: true,
     });
   });
-  
+
   test('Check validity of clear all completed function', () => {
     const testData = getResourceFromLocalStorage();
 
